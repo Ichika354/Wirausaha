@@ -13,64 +13,35 @@
 
     <ul class="menu-inner py-1">
         <!-- Dashboards -->
-        <li class="menu-item">
-            <a href="javascript:void(0);" class="menu-link menu-toggle">
+        <li class="menu-item {{ request()->routeIs('dashboard.seller') ? 'active' : '' }}">
+            <a href="{{ route('dashboard.seller') }}" class="menu-link">
                 <i class="menu-icon tf-icons mdi mdi-home-outline"></i>
                 <div data-i18n="Dashboards">Dashboards</div>
             </a>
-            <ul class="menu-sub">
-                <li class="menu-item">
-                    <a href="" class="menu-link">
-                        <div data-i18n="CRM">All Data</div>
-                    </a>
-                </li>
-            </ul>
         </li>
 
         <!-- Data Master -->
-        <li class="menu-item">
-            <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons mdi mdi-window-maximize"></i>
-                <div data-i18n="Layouts">Data Master</div>
+        <li class="menu-item {{ request()->routeIs('product.seller') ? 'active' : '' }}">
+            <a href="{{ route('product.seller') }}" class="menu-link ">
+                <i class="menu-icon tf-icons mdi mdi-cube-outline"></i>
+                <div data-i18n="Layouts">Products</div>
             </a>
-
-            <ul class="menu-sub">
-                <li class="menu-item">
-                    <a href="" class="menu-link">
-                        <div data-i18n="Without menu">Data Pengguna</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="" class="menu-link">
-                        <div data-i18n="Without navbar">Data Kos</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="" class="menu-link">
-                        <div data-i18n="Container">Data Pemilik Kos</div>
-                    </a>
-                </li>
-            </ul>
         </li>
 
         <!-- Data Transaksi -->
-        <li class="menu-item">
-            <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons mdi mdi-flip-to-front"></i>
-                <div data-i18n="Front Pages">Data Transaksi</div>
+        <li class="menu-item {{ request()->routeIs('order.seller') ? 'active' : '' }}">
+            <a href="{{ route('order.seller') }}" class="menu-link">
+                <i class="menu-icon tf-icons mdi mdi-form-select"></i>
+                <div data-i18n="Front Pages">Orders</div>
             </a>
-            <ul class="menu-sub">
-                <li class="menu-item">
-                    <a href="" class="menu-link">
-                        <div data-i18n="Landing">Data Pemesanan</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="" class="menu-link">
-                        <div data-i18n="Pricing">Data Pembayaran</div>
-                    </a>
-                </li>
-            </ul>
+        </li>
+
+
+        <li class="menu-item {{ request()->routeIs('transaction.seller') ? 'active' : '' }}">
+            <a href="{{ route('transaction.seller') }}" class="menu-link">
+                <i class="menu-icon tf-icons mdi mdi-credit-card-outline"></i>
+                <div data-i18n="Front Pages">Transactions</div>
+            </a>
         </li>
 
         <li class="menu-item">

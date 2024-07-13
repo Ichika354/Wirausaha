@@ -15,10 +15,10 @@
         <div class="col-lg-4 col-md-3 footer-links">
           <h4>Useful Links</h4>
           <ul>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Home</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">About us</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Product</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Contact</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="{{ route('page') }}">Home</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="{{ route('about') }}">About us</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="{{ route('product') }}">Product</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="{{ route('contact') }}">Contact</a></li>
           </ul>
         </div>
 

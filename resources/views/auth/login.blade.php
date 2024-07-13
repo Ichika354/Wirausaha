@@ -18,7 +18,8 @@
                         <h4 class="mb-2">Selamat Datang 👋</h4>
                         <p class="mb-4">Login untuk mendapatkan pengalaman seru</p>
 
-                        <form id="formAuthentication" class="mb-3" action="{{ route('login') }}">
+                        <form id="formAuthentication" class="mb-3" action="{{ route('login') }}" method="POST">
+                            @csrf
                             <div class="form-floating form-floating-outline mb-3">
                                 <input type="text" class="form-control" id="npm" name="npm"
                                     placeholder="Masukan NPM kamu" autofocus />
@@ -39,16 +40,16 @@
                                 </div>
                             </div>
                             <div class="mb-3">
-                                <button class="btn btn-primary d-grid w-100" type="submit">Sign in</button>
+                                <button class="btn btn-primary d-grid w-100">Sign in</button>
                             </div>
                         </form>
                         <p class="text-center">
                             <span>Belum punya akun?</span>
-                            <a href="auth-register-basic.html">
+                            <a href="{{ route('register') }}">
                                 <span>Buat akun</span>
                             </a>
                             <br>
-                            <a href="auth-register-basic.html">
+                            <a href="{{ route('page') }}">
                                 <span>Kembali ke halaman utama</span>
                             </a>
                         </p>
