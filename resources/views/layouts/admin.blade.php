@@ -8,7 +8,7 @@
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-    <title>Seller</title>
+    <title>Admin</title>
 
     <meta name="description" content="" />
 
@@ -50,13 +50,13 @@
     <div class="layout-wrapper layout-content-navbar">
         <div class="layout-container">
             <!-- Menu -->
-            @include('components.sidebarsel')
+            @include('components.sidebarmin')
             <!-- / Menu -->
 
             <!-- Layout container -->
             <div class="layout-page">
                 <!-- Navbar -->
-                @include('components.navsel')
+                @include('components.navmin')
                 <!-- / Navbar -->
                 <!-- Content wrapper -->
                 <div class="content-wrapper">
@@ -69,7 +69,7 @@
                     <!-- / Content -->
 
                     <!-- Footer -->
-                    @include('components.footsel')
+                    @include('components.footmin')
                     <!-- / Footer -->
 
                     <div class="content-backdrop fade"></div>
@@ -107,9 +107,42 @@
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <script>
         function validateNumberInput(input) {
             input.value = input.value.replace(/[^0-9]/g, '');
+        }
+    </script>
+
+    @if (session('success'))
+        <script>
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: '{{ session('success') }}',
+                showConfirmButton: false,
+                timer: 1500
+            });
+        </script>
+    @endif
+    @yield('script')
+    @if (session('error'))
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: '{{ session('error') }}',
+            })
+        </script>
+    @endif
+
+    <script>
+        if (window.location.hash === '#success') {
+            history.replaceState(null, null, ' ');
+        } else if (window.performance && window.performance.navigation.type === window.performance.navigation
+            .TYPE_BACK_FORWARD) {
+            window.location.href = '{{ route('category.admin') }}';
         }
     </script>
 </body>

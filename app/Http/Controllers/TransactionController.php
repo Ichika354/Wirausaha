@@ -9,4 +9,8 @@ class TransactionController extends Controller
     public function sellerTransactionView(){
         return view('seller.transaction');
     }
+
+    public function adminTransactionView(){
+        return view('admin.transaction');
+    }
 }

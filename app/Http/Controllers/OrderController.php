@@ -9,4 +9,8 @@ class OrderController extends Controller
     public function sellerOrderView() {
         return view('seller.order');
     }
+
+    public function adminOrderView() {
+        return view('admin.order');
+    }
 }

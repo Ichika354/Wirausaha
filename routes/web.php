@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\DashboardAdminController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
@@ -36,6 +38,19 @@ Route::get('/transaction-seller', [TransactionController::class,'sellerTransacti
 Route::get('/profile-seller', [ProfileController::class, 'sellerProfileView'])->name('profile.seller');
 Route::get('/cash-out-seller', [CashOutSellerController::class, 'index'])->name('cash-out.seller');
 // End Seller
+
+// Admin
+Route::get('/dashboard-admin', [DashboardAdminController::class, 'index'])->name('dashboard.admin');
+Route::get('/product-admin', [ProductController::class, 'adminProductView'])->name('product.admin');
+// Category
+Route::get('/category-admin', [CategoryController::class, 'adminCategoryView'])->name('category.admin');
+Route::post('/category-admin/add', [CategoryController::class, 'storeCategory'])->name('category.admin.add');
+Route::get('/order-admin', [OrderController::class, 'adminOrderView'])->name('order.admin');
+Route::get('/transaction-admin', [TransactionController::class,'adminTransactionView'])->name('transaction.admin');
+Route::get('/seller-admin', [AdminController::class,'sellerView'])->name('seller.admin');
+Route::get('/buyer-admin', [AdminController::class,'buyerView'])->name('buyer.admin');
+
+// End Admin
 
 Auth::routes();
 

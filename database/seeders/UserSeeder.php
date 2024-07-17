@@ -32,7 +32,7 @@ class UserSeeder extends Seeder
                 'fullname' => 'M Fachriza Farhan',
                 'npm' => 714220005,
                 'phone_number' => '0895379114998',
-                'role' => 'Seller',
+                'role' => 'Admin',
                 'email' => 'reza@gmail.com',
                 'password' => Hash::make('admin12345'),
                 'created_at' => now(),
