@@ -218,6 +218,31 @@
             });
         });
     </script>
+    
+    <script>
+        document.getElementById('addProductForm').addEventListener('submit', function(event) {
+            const photoInput = document.getElementById('photo');
+            const file = photoInput.files[0];
+
+            if (file) {
+                const validExtensions = ['jpeg', 'png', 'jpg', 'gif', 'svg'];
+                const fileExtension = file.name.split('.').pop().toLowerCase();
+                const fileSize = file.size / 1024 / 1024; // in MB
+
+                if (!validExtensions.includes(fileExtension) || fileSize > 2) {
+                    event.preventDefault();
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Invalid Image',
+                        text: 'The image must be in jpeg, png, jpg, gif, svg format and less than 2MB',
+                    }).then(() => {
+                        var modal = bootstrap.Modal.getInstance(document.getElementById('basicModal'));
+                        modal.hide();
+                    });
+                }
+            }
+        });
+    </script>
 
 
 

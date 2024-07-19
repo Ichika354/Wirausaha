@@ -1,6 +1,7 @@
 <div class="modal fade" id="basicModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
-        <form class="modal-content" action="{{ route('product.seller.add') }}" method="POST" enctype="multipart/form-data">
+        <form id="addProductForm" class="modal-content" action="{{ route('product.seller.add') }}" method="POST"
+            enctype="multipart/form-data">
             @csrf
             <div class="modal-header">
                 <h4 class="modal-title" id="exampleModalLabel3">Modal title</h4>
