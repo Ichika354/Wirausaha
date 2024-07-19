@@ -22,7 +22,7 @@
         </nav>
         @auth
             @if (Auth::user()->role == 'Admin')
-                <a class="btn-getstarted flex-md-shrink-0" href="{{ route('login') }}">Dashboard</a>
+                <a class="btn-getstarted flex-md-shrink-0" href="{{ route('dashboard.admin') }}">Dashboard</a>
             @elseif (Auth::user()->role == 'Seller')
                 <a class="btn-getstarted flex-md-shrink-0" href="{{ route('dashboard.seller') }}">Dashboard</a>
             @elseif (Auth::user()->role == 'Buyer')

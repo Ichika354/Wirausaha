@@ -38,6 +38,17 @@ class UserSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
+            [
+                'user_id' => Uuid::uuid4()->toString(),
+                'fullname' => 'Rania Ayuni Kartini Fitri',
+                'npm' => 714220032,
+                'phone_number' => '089832458212',
+                'role' => 'seller',
+                'email' => 'rania@gmail.com',
+                'password' => Hash::make('admin12345'),
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
         ]);
     }
 }

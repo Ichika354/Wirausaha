@@ -33,28 +33,28 @@
                 <div class="row mt-2 gy-4">
                     <div class="col-md-6">
                         <div class="form-floating form-floating-outline">
-                            <input class="form-control" type="text" id="fullname" name="fullname" value="John"
+                            <input class="form-control" type="text" id="fullname" name="fullname" value="{{ Auth::user()->fullname }}"
                                 autofocus />
                             <label for="fullname">Fullname</label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating form-floating-outline">
-                            <input class="form-control" type="text" name="npm" id="npm" value="714220005" oninput="validateNumberInput(this)" />
+                            <input class="form-control" type="text" name="npm" id="npm" value="{{ Auth::user()->npm }}" oninput="validateNumberInput(this)" />
                             <label for="npm">NPM</label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating form-floating-outline">
                             <input class="form-control" type="text" id="email" name="email"
-                                value="john.doe@example.com" placeholder="john.doe@example.com" />
+                                value="{{ Auth::user()->email }}" placeholder="john.doe@example.com" />
                             <label for="email">E-mail</label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating form-floating-outline">
                             <input type="text" class="form-control" id="role" name="role"
-                                value="Seller" readonly/>
+                                value="{{ Auth::user()->role }}" readonly/>
                             <label for="role">Role</label>
                         </div>
                     </div>
@@ -62,7 +62,7 @@
                         <div class="input-group input-group-merge">
                             <div class="form-floating form-floating-outline">
                                 <input type="text" id="phone_number" name="phone_number" class="form-control"
-                                    placeholder="202 555 0111" oninput="validateNumberInput(this)"/>
+                                    placeholder="202 555 0111" value="{{ Auth::user()->phone_number }}" oninput="validateNumberInput(this)"/>
                                 <label for="phone_number">Phone Number</label>
                             </div>
                             <span class="input-group-text">ID (+62)</span>

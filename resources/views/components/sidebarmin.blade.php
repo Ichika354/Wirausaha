@@ -65,6 +65,13 @@
             </a>
         </li>
 
+        <li class="menu-item {{ request()->routeIs('page') ? 'active' : '' }}">
+            <a href="{{ route('page') }}" class="menu-link">
+                <i class="menu-icon tf-icons mdi mdi-flip-to-front"></i>
+                <div data-i18n="Front Pages">Pages</div>
+            </a>
+        </li>
+
         <li class="menu-item">
             <form method="POST" action="{{ route('logout') }}">
                 @csrf

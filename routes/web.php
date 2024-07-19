@@ -32,7 +32,12 @@ Route::get('/contact', [HomeController::class,'contact'])->name('contact');
 
 // Seller
 Route::get('/dashboard-seller', [DashboardSellerController::class, 'index'])->name('dashboard.seller');
+// Product
 Route::get('/product-seller', [ProductController::class, 'sellerProductView'])->name('product.seller');
+Route::post('/product-seller/add', [ProductController::class, 'sellerProductAdd'])->name('product.seller.add');
+Route::put('/product-seller/edit/{id}', [ProductController::class, 'sellerProductEdit'])->name('product.seller.edit');
+Route::delete('/product-seller/delete/{id}', [ProductController::class, 'sellerProductDelete'])->name('product.seller.delete');
+// order
 Route::get('/order-seller', [OrderController::class, 'sellerOrderView'])->name('order.seller');
 Route::get('/transaction-seller', [TransactionController::class,'sellerTransactionView'])->name('transaction.seller');
 Route::get('/profile-seller', [ProfileController::class, 'sellerProfileView'])->name('profile.seller');

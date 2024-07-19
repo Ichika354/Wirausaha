@@ -74,10 +74,20 @@
                 position: 'center',
                 icon: 'success',
                 title: '{{ session('success') }}',
+                text: 'Selamat Datang {{ Auth::user()->role }}',
                 showConfirmButton: true
             });
         </script>
     @endif
+
+    <script>
+        if (window.location.hash === '#success') {
+            history.replaceState(null, null, ' ');
+        } else if (window.performance && window.performance.navigation.type === window.performance.navigation
+            .TYPE_BACK_FORWARD) {
+            window.location.href = '{{ route('page') }}';
+        }
+    </script>
 </body>
 
 </html>

@@ -104,6 +104,7 @@
 
     <!-- Page JS -->
     <script src="{{ asset('dashboard/js/dashboards-analytics.js') }}"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
@@ -112,6 +113,114 @@
             input.value = input.value.replace(/[^0-9]/g, '');
         }
     </script>
+
+    @if (session('success'))
+        <script>
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: '{{ session('success') }}',
+                showConfirmButton: false,
+                timer: 1500
+            });
+        </script>
+    @endif
+    @if (session('error'))
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: '{{ session('error') }}',
+            })
+        </script>
+    @endif
+
+    <script>
+        if (window.location.hash === '#success') {
+            history.replaceState(null, null, ' ');
+        } else if (window.performance && window.performance.navigation.type === window.performance.navigation
+            .TYPE_BACK_FORWARD) {
+            window.location.href = '{{ route('product.seller') }}';
+        }
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Tambahkan event listener untuk semua elemen dengan class 'open-modal'
+            document.querySelectorAll('.open-modal').forEach(function(element) {
+                element.addEventListener('click', function() {
+                    // Ambil data-photo dari elemen yang diklik
+                    const photo = this.getAttribute('data-photo');
+                    // Set src dari img di dalam modal dengan foto yang diambil
+                    document.getElementById('modalPhoto').setAttribute('src', photo);
+                    // Tampilkan modal
+                    $('#photoModal').modal('show');
+                });
+            });
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Tambahkan event listener untuk semua elemen dengan class 'edit-product'
+            document.querySelectorAll('.edit-product').forEach(function(element) {
+                element.addEventListener('click', function() {
+                    // Ambil data dari elemen yang diklik
+                    const id = this.getAttribute('data-id');
+                    const name = this.getAttribute('data-name');
+                    const price = this.getAttribute('data-price');
+                    const stock = this.getAttribute('data-stock');
+                    const category = this.getAttribute('data-category');
+                    const description = this.getAttribute('data-description');
+                    const photo = this.getAttribute('data-photo');
+
+                    // Set data ke dalam form modal
+                    document.getElementById('editProduct').value = name;
+                    document.getElementById('editPrice').value = price;
+                    document.getElementById('editStock').value = stock;
+                    document.getElementById('editCategory').value = category;
+                    document.getElementById('editDescription').value = description;
+
+                    // Set photo ke elemen img
+                    document.getElementById('editProductImage').src =
+                        `data:image/jpeg;base64,${photo}`;
+
+                    const formAction = `{{ url('product-seller/edit') }}/${id}`;
+                    document.getElementById('editProductForm').setAttribute('action', formAction);
+
+
+                    // Tampilkan modal
+                    $('#editProductModal').modal('show');
+                });
+            });
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.deleteButton').forEach(function(element) {
+                element.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const productId = this.getAttribute('data-id');
+                    Swal.fire({
+                        title: 'Are you sure?',
+                        text: "Product will delete permanently if you click yes",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Yes, delete it!'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            document.getElementById('deleteForm-' + productId).submit();
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+
+
+
 </body>
 
 </html>

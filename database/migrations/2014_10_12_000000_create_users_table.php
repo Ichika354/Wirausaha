@@ -19,6 +19,11 @@ return new class extends Migration
             $table->enum('role',['Admin', 'Seller', 'Buyer']);
             $table->string('email')->unique();
             $table->string('password');
+            $table->unsignedBigInteger('province_id');
+            $table->unsignedBigInteger('regency_id');
+            $table->unsignedBigInteger('district_id');
+            $table->unsignedBigInteger('village_id');
+            $table->unsignedBigInteger('street');
             $table->timestamps();
         });
     }
