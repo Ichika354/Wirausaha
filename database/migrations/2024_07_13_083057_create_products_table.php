@@ -17,7 +17,7 @@ return new class extends Migration
             $table->uuid('category_id');
             $table->string('product_name');
             $table->double('price');
-            $table->string('photo');
+            $table->text('photo');
             $table->integer('stock');
             $table->text('detail');
             $table->timestamps();
