@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\TextHomes;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -12,10 +13,11 @@ class HomeController extends Controller
         return view('home');
     }
 
-    public function wellcome()
-    {
-        return view('welcome');
-    }
+        public function wellcome()
+        {
+            $text = TextHomes::all();
+            return view('welcome', compact('text'));
+        }
 
     public function about(){
         return view('about');

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AddressController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\DashboardAdminController;
 use App\Http\Controllers\CategoryController;
@@ -10,6 +11,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Seller\CashOutSellerController;
 use App\Http\Controllers\Seller\DashboardSellerController;
 use App\Http\Controllers\TransactionController;
+use App\Models\Addresses;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -37,10 +39,16 @@ Route::get('/product-seller', [ProductController::class, 'sellerProductView'])->
 Route::post('/product-seller/add', [ProductController::class, 'sellerProductAdd'])->name('product.seller.add');
 Route::put('/product-seller/edit/{id}', [ProductController::class, 'sellerProductEdit'])->name('product.seller.edit');
 Route::delete('/product-seller/delete/{id}', [ProductController::class, 'sellerProductDelete'])->name('product.seller.delete');
-// order
+// Order
 Route::get('/order-seller', [OrderController::class, 'sellerOrderView'])->name('order.seller');
 Route::get('/transaction-seller', [TransactionController::class,'sellerTransactionView'])->name('transaction.seller');
+// Profile
 Route::get('/profile-seller', [ProfileController::class, 'sellerProfileView'])->name('profile.seller');
+Route::get('/get-regency', [AddressController::class, 'getRegency'])->name('get.regency');
+Route::get('/get-district', [AddressController::class, 'getDistrict'])->name('get.district');
+Route::get('/get-village', [AddressController::class, 'getVillage'])->name('get.village');
+
+
 Route::get('/cash-out-seller', [CashOutSellerController::class, 'index'])->name('cash-out.seller');
 // End Seller
 
@@ -54,6 +62,10 @@ Route::get('/order-admin', [OrderController::class, 'adminOrderView'])->name('or
 Route::get('/transaction-admin', [TransactionController::class,'adminTransactionView'])->name('transaction.admin');
 Route::get('/seller-admin', [AdminController::class,'sellerView'])->name('seller.admin');
 Route::get('/buyer-admin', [AdminController::class,'buyerView'])->name('buyer.admin');
+// Text Page
+Route::get('/text-home', [AdminController::class,'homeText'])->name('home.text.admin');
+Route::get('/text-about', [AdminController::class,'homeAbout'])->name('home.about.admin');
+Route::get('/text-contact', [AdminController::class,'homeContact'])->name('home.contact.admin');
 
 // End Admin
 

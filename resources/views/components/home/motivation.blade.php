@@ -9,10 +9,7 @@
             <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
                 <div class="content">
                     <p>
-                        Jadilah bagian dari perubahan! Mulailah wirausaha sekarang dan wujudkan ide-ide kreatifmu.
-                        Dengan semangat inovasi dan ketekunan, mari ciptakan masa depan yang lebih cerah dan mandiri.
-                        Wirausaha bukan hanya tentang keuntungan, tetapi juga tentang memberi dampak positif bagi
-                        masyarakat. Ayo, berani bermimpi, berani bertindak, dan raih sukses bersama!
+                        {{ $text->first()->description }}
                     </p>
                 </div>
             </div>

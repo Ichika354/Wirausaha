@@ -7,6 +7,7 @@
     <meta charset="utf-8" />
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>Seller</title>
 
@@ -143,6 +144,7 @@
             window.location.href = '{{ route('product.seller') }}';
         }
     </script>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Tambahkan event listener untuk semua elemen dengan class 'open-modal'
@@ -218,7 +220,7 @@
             });
         });
     </script>
-    
+
     <script>
         document.getElementById('addProductForm').addEventListener('submit', function(event) {
             const photoInput = document.getElementById('photo');
@@ -244,6 +246,72 @@
         });
     </script>
 
+    <script>
+        $(function() {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            $('#province').on('change', function() {
+                let province_id = $(this).val();
+                $.ajax({
+                    type: 'POST',
+                    url: "{{ route('get.regency') }}",
+                    data: {
+                        province_id: province_id
+                    },
+                    cache: false,
+                    success: function(response) {
+                        $('#regency').html(response);
+                        $('#district').html('<option value="">Select a regency first</option>');
+                        $('#village').html('<option value="">Select a district first</option>');
+                    },
+                    error: function(data) {
+                        console.log('error:', data);
+                    }
+                });
+            });
+
+            $('#regency').on('change', function() {
+                let regency_id = $(this).val();
+                $.ajax({
+                    type: 'POST',
+                    url: "{{ route('get.district') }}",
+                    data: {
+                        regency_id: regency_id
+                    },
+                    cache: false,
+                    success: function(response) {
+                        $('#district').html(response);
+                        $('#village').html('<option value="">Select a district first</option>');
+                    },
+                    error: function(data) {
+                        console.log('error:', data);
+                    }
+                });
+            });
+
+            $('#district').on('change', function() {
+                let district_id = $(this).val();
+                $.ajax({
+                    type: 'POST',
+                    url: "{{ route('get.village') }}",
+                    data: {
+                        district_id: district_id
+                    },
+                    cache: false,
+                    success: function(response) {
+                        $('#village').html(response);
+                    },
+                    error: function(data) {
+                        console.log('error:', data);
+                    }
+                });
+            });
+        });
+    </script>
 
 
 </body>

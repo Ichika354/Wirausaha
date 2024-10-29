@@ -19,6 +19,36 @@
                 <div data-i18n="Dashboards">Dashboards</div>
             </a>
         </li>
+{{--Class =  active open --}}
+        <li class="menu-item {{ request()->routeIs('home.text.admin') ? 'active open' : '' }}">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons mdi mdi-window-maximize"></i>
+                <div data-i18n="Layouts">Text Page</div>
+            </a>
+
+            <ul class="menu-sub">
+                <li class="menu-item {{ request()->routeIs('home.text.admin') ? 'active' : '' }}">
+                    <a href="{{ route('home.text.admin') }}" class="menu-link">
+                        <div data-i18n="Home">Home</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="layouts-without-navbar.html" class="menu-link">
+                        <div data-i18n="Feature Home">Feature Home</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="layouts-without-navbar.html" class="menu-link">
+                        <div data-i18n="About">About</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="layouts-container.html" class="menu-link">
+                        <div data-i18n="Contact">Contact</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
 
         <!-- Data Master -->
         <li class="menu-item {{ request()->routeIs('product.admin') ? 'active' : '' }}">

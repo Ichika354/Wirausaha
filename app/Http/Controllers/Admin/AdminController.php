@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\TextHomes;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -27,5 +28,11 @@ class AdminController extends Controller
     public function buyerView()
     {
         return view('admin.buyer');
+    }
+
+    public function homeText()
+    {
+        $text = TextHomes::all();
+        return view('admin.texthome', compact('text'));
     }
 }
