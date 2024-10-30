@@ -66,7 +66,8 @@
 
     <!-- Main JS File -->
     <script src="{{ asset('home/js/main.js') }}"></script>
-
+    
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
     @if (session('success'))
         <script>

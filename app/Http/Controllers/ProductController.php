@@ -11,7 +11,9 @@ class ProductController extends Controller
 {
     public function allProductView()
     {
-        return view('product');
+        $categories = Categories::all();
+        $products = Products::all();
+        return view('product', compact('categories', 'products'));
     }
 
     public function sellerProductView()
