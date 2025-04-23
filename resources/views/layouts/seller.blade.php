@@ -51,13 +51,13 @@
     <div class="layout-wrapper layout-content-navbar">
         <div class="layout-container">
             <!-- Menu -->
-            @include('components.sidebarsel')
+            @include('components.sidebar')
             <!-- / Menu -->
 
             <!-- Layout container -->
             <div class="layout-page">
                 <!-- Navbar -->
-                @include('components.navsel')
+                @include('components.navboard')
                 <!-- / Navbar -->
                 <!-- Content wrapper -->
                 <div class="content-wrapper">
@@ -70,7 +70,7 @@
                     <!-- / Content -->
 
                     <!-- Footer -->
-                    @include('components.footsel')
+                    @include('components.footboard')
                     <!-- / Footer -->
 
                     <div class="content-backdrop fade"></div>

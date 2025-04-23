@@ -3,8 +3,8 @@
 
         <a href="index.html" class="logo d-flex align-items-center me-auto">
             <!-- Uncomment the line below if you also wish to use an image logo -->
-            <img src="assets/img/logo.png" alt="">
-            <h1 class="sitename">WAU</h1>
+            {{-- <img src="assets/img/logo.png" alt=""> --}}
+            <h1 class="sitename">GrowBiz</h1>
         </a>
 
         <nav id="navmenu" class="navmenu">
@@ -26,9 +26,9 @@
             @elseif (Auth::user()->role == 'Seller')
                 <a class="btn-getstarted flex-md-shrink-0" href="{{ route('dashboard.seller') }}">Dashboard</a>
             @elseif (Auth::user()->role == 'Buyer')
-                <form method="POST" action="{{ route('logout') }}">
+                <form method="POST" action="{{ route('logout') }}" class="border-transparent">
                     @csrf
-                    <button type="submit" class="menu-link border-transparent bg-transparent">
+                    <button type="submit" class="menu-link btn-getstarted flex-md-shrink-0">
                         <!-- Unique Logout Icon -->
                         <i class="menu-icon tf-icons mdi mdi-flip-to-front"></i>
                         <div data-i18n="Front Pages">Logout</div>

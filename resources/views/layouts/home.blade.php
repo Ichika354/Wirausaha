@@ -31,6 +31,9 @@
 
     <!-- Main CSS File -->
     <link href="{{ asset('home/css/main.css') }}" rel="stylesheet">
+    <!-- @TODO: replace SET_YOUR_CLIENT_KEY_HERE with your client key -->
+    <script type="text/javascript" src="https://app.sandbox.midtrans.com/snap/snap.js"
+        data-client-key="{{ config('midtrans.client_key') }}"></script>
 
     <!-- =======================================================
   * Template Name: FlexStart
@@ -66,7 +69,7 @@
 
     <!-- Main JS File -->
     <script src="{{ asset('home/js/main.js') }}"></script>
-    
+
     <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
     @if (session('success'))

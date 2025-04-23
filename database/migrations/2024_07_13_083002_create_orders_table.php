@@ -14,15 +14,16 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->uuid('order_id')->primary();
             $table->uuid('user_id');
-            $table->uuid('address_id');
+            // $table->uuid('address_id');
             $table->uuid('seller_id');
             $table->uuid('product_id');
             $table->integer('qty');
+            $table->enum('status', ['Unpaid', 'Paid']);
             $table->bigInteger('total_price');
             $table->timestamps();
 
             // $table->foreign('user_id')->references('user_id')->on('addresses');
-            $table->foreign('address_id')->references('address_id')->on('addresses')->onDelete('cascade');
+            // $table->foreign('address_id')->references('address_id')->on('addresses')->onDelete('cascade');
         });
     }
 

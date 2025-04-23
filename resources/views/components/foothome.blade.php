@@ -3,7 +3,7 @@
       <div class="row gy-4">
         <div class="col-lg-4 col-md-6 footer-about">
           <a href="#" class="d-flex align-items-center">
-            <span class="sitename">WAU</span>
+            <span class="sitename">GrowBiz</span>
           </a>
           <div class="footer-contact pt-3">
             <p>Universitas Logistik & Bisnis Internasional</p>

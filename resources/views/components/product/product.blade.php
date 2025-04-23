@@ -30,12 +30,12 @@
                             <div class="portfolio-info">
                                 <h4>{{ $product->product_name }}</h4>
                                 <p>{{ $product->description }}</p>
-                                <a href="data:image/jpeg;base64,{{ $product->photo }}"
+                                {{-- <a href="data:image/jpeg;base64,{{ $product->photo }}"
                                     title="{{ $product->product_name }}" data-gallery="portfolio-gallery-app"
                                     class="glightbox preview-link">
                                     <i class="bi bi-zoom-in"></i>
-                                </a>
-                                <a href="portfolio-details.html" title="More Details" class="details-link">
+                                </a> --}}
+                                <a href="{{ route('product.detail', $product->product_id) }}" title="More Details" class="details-link">
                                     <i class="bi bi-link-45deg"></i>
                                 </a>
                             </div>

@@ -30,6 +30,11 @@ Route::get('/', [HomeController::class, 'wellcome'])->name('page');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/product', [ProductController::class, 'allProductView'])->name('product');
 Route::get('/contact', [HomeController::class,'contact'])->name('contact');
+Route::get('/product-detail/{id}', [ProductController::class,'productDetail'])->name('product.detail');
+Route::post('/checkout', [ProductController::class,'checkout'])->name('checkout');
+Route::get('/pay', [ProductController::class,'pay'])->name('pay');
+Route::post('/midtrans/callback', [ProductController::class, 'callback']);
+
 // End Beranda
 
 // Seller
