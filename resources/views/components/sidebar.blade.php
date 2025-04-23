@@ -114,7 +114,7 @@
 
             </li>
         </ul>
-    @elseif (Auth::user()->role == 'Seller' && Auth::user()->role == 'Admin')
+    @elseif (Auth::user()->role == 'Seller')
         <ul class="menu-inner py-1">
             <!-- Dashboards -->
             <li class="menu-item {{ request()->routeIs('dashboard.seller') ? 'active' : '' }}">
